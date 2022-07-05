@@ -101,7 +101,7 @@ def get_wordcloud(client, message):
         if message.text is not None:
             text_chat = text_chat + ' ' + message.text
     text_chat = ' '.join(split_word(text_chat))
-    mask = numpy.array(Image.open(r"C:\Users\Sergey\PycharmProjects\FilterNewsTelegramBot\media\test.png"))
+    mask = numpy.array(Image.open(r""))
     wordcloud = WordCloud(width=2000,
                           height=1500,
                           random_state=1,
@@ -109,9 +109,8 @@ def get_wordcloud(client, message):
                           colormap='Set2',
                           collocations=False,
                           mask=mask).generate(text_chat)
-    wordcloud.to_file(r"C:\Users\Sergey\PycharmProjects\FilterNewsTelegramBot\media\test_changed.png")
-    tg_user_bot.send_photo(config.CHANNEL_FOR_STATISTICS,
-                           r"C:\Users\Sergey\PycharmProjects\FilterNewsTelegramBot\media\test_changed.png")
+    wordcloud.to_file(r"")
+    tg_user_bot.send_photo(config.CHANNEL_FOR_STATISTICS,r"")
 
 
 @tg_user_bot.on_message(filters.chat(config.CHANNEL_FOR_STATISTICS) and filters.command("help"))
